@@ -1,0 +1,63 @@
+<!--pages/store/store.wxml-->
+<!-- 
+  text相当于span
+  view相当于div
+ -->
+<text>pages/store/store.wxml</text>
+<view>这是商店页面</view>
+<view wx:for="{{list}}" wx:for-item="item" wx:for-index="index">
+  索引：{{index}}
+  值：{{item.name}}
+  ------
+</view>
+<view wx:for="{{person}}" wx:for-item="value" wx:for-index="key">
+  索引：{{key}}
+  值：{{value}}
+  ------
+</view>
+
+<!-- 
+  1.为input绑定事件 bindinput
+  2.获取input中的值通过事件元素
+    e.detail.value
+  3.将输入框中的值赋值到数据中
+    this.setData({
+      num:e.detail.value
+    })
+ -->
+<view>
+  <input type="text" bindinput="handleinput"/>
+  {{num}}
+</view>
+
+<!-- 
+  添加一个点击事件
+  1。bindtap
+  2.无法在事件中直接传参
+  3.通过自定义属性的方式传入参数
+ -->
+ <button bindtap="handlenum" data-number="1">+++++++</button>
+ <button bindtap="handlenum" data-number="-1">-------</button>
+
+ <!-- text标签中加入selectable 实现长按选中 -->
+ <text selectable="true">text</text>
+
+ <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=265433075,767414739&fm=11&gp=0.jpg"></image>
+
+ <button open-type="contact">联系客服</button>
+ <button open-type="share">share</button>
+ <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">getUserInfo</button>
+ <button open-type="feedback">feedback</button>
+
+<!-- 
+  子组件向父组件传递数据
+    1、首先在子组件中触发父组件自定义的事件 this.triggerEvent("父组件自定义事件的名称"，要传的参数)
+    2、在子组件的标签上加入一个自定义事件
+
+ -->
+ <Tabs items="{{items}}" binditemChange="handleItemChange">
+   <block wx:if="{{items[0].isactive}}">0</block>
+   <block wx:elif="{{items[1].isactive}}">1</block>
+   <block wx:elif="{{items[2].isactive}}">2</block>
+   <block wx:else="{{items[3].isactive}}">3</block>
+ </Tabs>

@@ -1,0 +1,4 @@
+<!--pages/goods_list/index.wxml-->
+<view>
+  {{goods.goods_name}}
+</view>

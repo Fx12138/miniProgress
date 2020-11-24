@@ -1,0 +1,13 @@
+/**index.wxss**/
+/* 使用app.wxss中定义的主题颜色 */
+/* color: var(--themeColor); */
+.index_swiper swiper{
+  width: 750rpx;
+  height: 340rpx;
+  
+}
+
+image{
+  width: 100%;
+}
+
